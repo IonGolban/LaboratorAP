@@ -1,12 +1,13 @@
+import java.util.Arrays;
 
-public class Tema1 {
+public class Lab1Compulsory {
 
 
     public static void main(String[] args) {
 
-        LatinMatrix matrix = new LatinMatrix("100");
-        matrix.display();
-        System.out.println("Time= "+matrix.getTime());
+        LatinMatrix latinMatrix = new LatinMatrix(args[0]);
+        if(latinMatrix.getSize()<100) System.out.println(latinMatrix);
+        System.out.println("Time= "+latinMatrix.getTime());
 
     }
 }
@@ -37,11 +38,13 @@ class LatinMatrix{
     }
 
     private int[] getShiftedLine(int[] line){
+
         int[] shiftedLine = new int[line.length];
         for(int i = 1; i<line.length;i++){
             shiftedLine[i] = line[i-1];
         }
         shiftedLine[0] = line[line.length-1];
+
         return shiftedLine;
     }
 
@@ -49,13 +52,21 @@ class LatinMatrix{
         return this.matrix;
     }
 
-    public void display(){
+    @Override
+    public String toString() {
+        String latinMatrix = new String();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                System.out.print(matrix[i][j]);
+               latinMatrix+=matrix[i][j]+" ";
             }
-            System.out.println();
+            latinMatrix+="\n";
         }
+
+        return latinMatrix;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public double getTime(){
