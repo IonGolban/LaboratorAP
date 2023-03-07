@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Lab1Compulsory {
+public class Lab1Homework {
 
 
     public static void main(String[] args) {
