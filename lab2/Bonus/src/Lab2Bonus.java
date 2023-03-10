@@ -30,7 +30,7 @@ public class Lab2Bonus {
         routeProblem.addRoad(e26);
         routeProblem.addRoad(e27);
 
-        System.out.println(routeProblem.findBestRoute(airportIasi,chisinau));
+        routeProblem.findBestRoute(airportIasi,chisinau).forEach(location -> System.out.println(location));
 
     }
 }

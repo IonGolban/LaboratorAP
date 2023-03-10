@@ -79,7 +79,7 @@ public class RouteProblem {
         while(!locationQueue.isEmpty()){
             Location currentLocation = locationQueue.poll();
             if(visitedLocations.contains(endLocation)){
-                return bestPrevious; 
+                return bestPrevious;
             }
             visitedLocations.add(currentLocation);
             for(Road road :roads) {
@@ -113,14 +113,14 @@ public class RouteProblem {
     public List<Location> findBestRoute(Location startLocation, Location endLocation){
 
         Map<Location,Location> bestRoutes = getBestRoutes(startLocation,endLocation);
-        Stack<Location> response = new Stack<>();
-        response.push(endLocation);
-        while(response.peek() != startLocation){
-            response.push(bestRoutes.get(response.peek()));
+        Stack<Location> locationStack = new Stack<>();
+        locationStack.push(endLocation);
+        while(locationStack.peek() != startLocation){
+            locationStack.push(bestRoutes.get(locationStack.peek()));
         }
-        Collections.reverse(response);
+        Collections.reverse(locationStack);
 
-        return Stream.of(response.toArray()).map(object ->(Location) object).collect(Collectors.toList());
+        return Stream.of(locationStack.toArray()).map(object ->(Location) object).collect(Collectors.toList());
     }
 
 

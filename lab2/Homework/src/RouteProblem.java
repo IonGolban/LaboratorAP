@@ -44,7 +44,7 @@ public class RouteProblem {
      * @param road must not be in the existing list of roads
      */
     public void addRoad(Road road){
-        if(!roads.contains(road)) roads.add(road);
+        if(!roads.contains(road)&&locations.contains(road.getLocation2())&&locations.contains(road.getLocation1())) roads.add(road);
     }
 
 
